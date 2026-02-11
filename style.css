@@ -32,7 +32,7 @@ body{
     display: flex;
     background-color: white !important;
     flex-direction: column;
-    /* width: 100%; */
+    width :300px;
     align-items: center;
 }
 img{
