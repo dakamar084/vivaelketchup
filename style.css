@@ -22,8 +22,11 @@ body{
     background-repeat: repeat;
     background-size: 30px;
 }
+.sinPadding{
+    padding: 0pt !important;
+}
 .main{
-    transform: translate(20%, 30%);
+    transform: translate(0%, 30%);
     border: solid 1px lightgray;
     padding: 70pt 150pt;
     display: flex;
@@ -92,10 +95,6 @@ img{
     transform: scale(1) !important;
     opacity: 1 !important;
     animation: chorreo 4s forwards;
-  }
-
-  @keyframes chorreo {
-    100% { transform: translateY(50px) scale(1.05); } /* Cae un poco por gravedad */
   }
   .paso2 iframe {
     max-width: 100%;

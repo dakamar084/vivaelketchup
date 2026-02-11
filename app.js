@@ -1,13 +1,13 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     var span = document.querySelector("span.tiempo");
     var tiempo = parseInt(span.innerHTML);
 
     var intervalo = setInterval(() => {
         tiempo--;
-        
+
         if (tiempo < 0) {
             clearInterval(intervalo);
-            resto(); 
+            resto();
             return;
         }
 
@@ -19,15 +19,15 @@ document.addEventListener("DOMContentLoaded", function() {
 function resto() {
     // Lista de IDs de videos de YouTube (el código después de v= o de embed/)
     let videoIds = [
-        'vbaLVwfDpeU', 
-        'hzUZH3VL3Gg',    
+        'vbaLVwfDpeU',
+        'hzUZH3VL3Gg',
         'h9LvjIc_gXs',
-        'vbaLVwfDpeU', 
+        'vbaLVwfDpeU',
         'SIaFtAKnqBU',
-        'NSU2hJ5wT08', 
+        'NSU2hJ5wT08',
         'QB7ACr7pUuE'
     ];
-    
+
     // Selección aleatoria
     var pos = Math.floor(Math.random() * videoIds.length);
     var videoSeleccionado = videoIds[pos];
@@ -39,7 +39,7 @@ function resto() {
         <iframe 
             width="560" 
             height="315" 
-            src="https://www.youtube.com/embed/${videoSeleccionado}?autoplay=1" 
+            src="https://www.youtube.com/embed/${videoSeleccionado}?autoplay=1&mute=1" 
             title="YouTube video player" 
             frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -54,4 +54,6 @@ function resto() {
     paso2.innerHTML = iframeHTML;
     paso1.style.display = "none";
     paso2.style.display = "block";
+
+    document.querySelector(".main").classList.add("sinPadding")
 }
