@@ -19,12 +19,12 @@ document.addEventListener("DOMContentLoaded", function() {
 function resto() {
     // Lista de IDs de videos de YouTube (el código después de v= o de embed/)
     let videoIds = [
-        'vbaLVwfDpeU?si=GS1q9iL-Kq7ET-do', 
         'hzUZH3VL3Gg',    
         'h9LvjIc_gXs',
         'SIaFtAKnqBU',
+        'vbaLVwfDpeU', 
         'NSU2hJ5wT08', 
-        'dQw4w9WgXcQ'
+        'oHg5SJYRHA0'
     ];
     
     // Selección aleatoria
