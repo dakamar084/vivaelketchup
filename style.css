@@ -1,0 +1,104 @@
+.loader{
+    width: 20px;
+    height: 20px;
+    border: solid 3px lightblue;
+    border-radius: 50%;
+    border-bottom-color: white;
+    animation: girar infinite 1s linear;
+}
+@keyframes girar {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("logo.png");
+    background-repeat: repeat;
+    background-size: 30px;
+}
+.main{
+    transform: translate(20%, 30%);
+    border: solid 1px lightgray;
+    padding: 70pt 150pt;
+    display: flex;
+    background-color: white !important;
+    flex-direction: column;
+    /* width: 100%; */
+    align-items: center;
+}
+img{
+    width: 90px;
+    height: 90px;
+    border: solid 10px white;
+}
+.arriba-derecha {
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* transform: translate(30px, -30px) !important; */
+    transform: rotate(-135deg) !important;
+    margin-top: -30pt;
+    margin-right: -30pt;
+}
+.arriba-izquierda {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* transform: translate(30px, -30px) !important; */
+    transform: rotate(
+135deg) !important;
+    margin-top: -30pt;
+    margin-left: -30pt;
+}
+.abajo-derecha {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    /* transform: translate(30px, -30px) !important; */
+    transform: rotate(
+315deg) !important;
+    margin-bottom: -30pt;
+    margin-right: -30pt;
+}
+.abajo-izquierda {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /* transform: translate(30px, -30px) !important; */
+    transform: rotate(
+45deg) !important;
+    margin-bottom: -30pt;
+    margin-left: -30pt;
+}
+  .ketchup {
+    position: absolute;
+    background: radial-gradient(circle, #b30000 20%, #8b0000 90%);
+    border-radius: 45% 55% 70% 30% / 30% 60% 40% 70%; /* Forma irregular */
+    filter: drop-shadow(2px 4px 5px rgba(0,0,0,0.3));
+    pointer-events: none; /* Para que no bloquee clics */
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.2s ease-out, opacity 0.1s;
+  }
+
+  /* Animación de acercamiento */
+  .splash {
+    transform: scale(1) !important;
+    opacity: 1 !important;
+    animation: chorreo 4s forwards;
+  }
+
+  @keyframes chorreo {
+    100% { transform: translateY(50px) scale(1.05); } /* Cae un poco por gravedad */
+  }
+  .paso2 iframe {
+    max-width: 100%;
+    border: 5px solid #ff0000; /* Un borde rojo tipo ketchup opcional */
+    border-radius: 10px;
+}
