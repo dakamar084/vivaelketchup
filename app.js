@@ -96,5 +96,4 @@ function activarSonido() {
             pulsador.style.display = "none";
         }
     });
-    pulsador.dispatchEvent(new Event("click", {bubbles: true}))
 }
