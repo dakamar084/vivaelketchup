@@ -41,9 +41,9 @@ function resto() {
     // Insertamos contenedor del player
     paso2.innerHTML = `
         <div id="player"></div>
-        <button class="pulsador">pulsame para disfrutar mas del premio</button>
         
     `;
+    document.querySelector(".pulsador").classList.remove("oculto")
     // Cargar API si no está cargada
     if (!window.YT) {
         let tag = document.createElement("script");

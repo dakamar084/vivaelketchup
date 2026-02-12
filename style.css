@@ -125,3 +125,6 @@ img{
 #player iframe {
     width: 100% !important;
 }
+.oculto{
+    display: none;
+}
