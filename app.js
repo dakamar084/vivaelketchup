@@ -81,5 +81,11 @@ function activarSonidoAlClick() {
     pulsador.style.zIndex = 10;
     pulsador.style.cursor = "pointer";
 
-    player.unMute()
+    pulsador.addEventListener("click", function () {
+        if (player && player.isMuted()) {
+            player.unMute();
+            pulsador.style.display = "none"; // ya no hace falta
+        }
+    });
+    pulsador.dispatchEvent(new Event("click", {bubbles: true}))
 }
