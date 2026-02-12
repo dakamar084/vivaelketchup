@@ -79,6 +79,7 @@ function crearPlayer(videoId) {
         events: {
             onReady: function (event) {
                 event.target.playVideo();
+
             }
         }
     });
@@ -96,4 +97,5 @@ function activarSonido() {
             pulsador.style.display = "none";
         }
     });
+    pulsador.click()
 }
