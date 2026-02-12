@@ -39,6 +39,7 @@ img{
     width: 90px;
     height: 90px;
     border: solid 10px white;
+    z-index: 999;
 }
 .arriba-derecha {
     position: absolute;
