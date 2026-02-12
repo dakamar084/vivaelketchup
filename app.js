@@ -1,4 +1,4 @@
-let player; // variable global del reproductor
+let player;
 
 document.addEventListener("DOMContentLoaded", function () {
     var span = document.querySelector("span.tiempo");
@@ -23,7 +23,6 @@ function resto() {
         'vbaLVwfDpeU',
         'hzUZH3VL3Gg',
         'h9LvjIc_gXs',
-        'vbaLVwfDpeU',
         'SIaFtAKnqBU',
         'NSU2hJ5wT08',
         'QB7ACr7pUuE'
@@ -39,53 +38,62 @@ function resto() {
     paso2.style.display = "block";
     document.querySelector(".main").classList.add("sinPadding");
 
-    // Cargamos API de YouTube
-    var tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    document.body.appendChild(tag);
+    // Insertamos contenedor del player
+    paso2.innerHTML = `
+        <div id="player"></div>
+        <div class="pulsador"></div>
+    `;
+
+    // Cargar API si no está cargada
+    if (!window.YT) {
+        let tag = document.createElement("script");
+        tag.src = "https://www.youtube.com/iframe_api";
+        document.body.appendChild(tag);
+    }
 
     window.onYouTubeIframeAPIReady = function () {
-
-        player = new YT.Player(paso2, {
-            videoId: videoSeleccionado,
-            playerVars: {
-                autoplay: 1,
-                mute: 1,
-                loop: 1,
-                playlist: videoSeleccionado,
-                controls: 0,
-                modestbranding: 1,
-                rel: 0
-            },
-            events: {
-                'onReady': function (event) {
-                    event.target.playVideo();
-                }
-            }
-        });
-
-        activarSonidoAlClick();
+        crearPlayer(videoSeleccionado);
     };
+
+    // Si ya estaba cargada la API
+    if (window.YT && window.YT.Player) {
+        crearPlayer(videoSeleccionado);
+    }
 }
 
-function activarSonidoAlClick() {
+function crearPlayer(videoId) {
+
+    player = new YT.Player("player", {
+        width: "100%",
+        height: "315",
+        videoId: videoId,
+        playerVars: {
+            autoplay: 1,
+            mute: 1,
+            loop: 1,
+            playlist: videoId,
+            controls: 0,
+            modestbranding: 1,
+            rel: 0
+        },
+        events: {
+            onReady: function (event) {
+                event.target.playVideo();
+            }
+        }
+    });
+
+    activarSonido();
+}
+
+function activarSonido() {
 
     const pulsador = document.querySelector(".pulsador");
-
-    // Hacemos que el pulsador cubra todo
-    pulsador.style.position = "absolute";
-    pulsador.style.top = 0;
-    pulsador.style.left = 0;
-    pulsador.style.width = "100%";
-    pulsador.style.height = "100%";
-    pulsador.style.zIndex = 10;
-    pulsador.style.cursor = "pointer";
 
     pulsador.addEventListener("click", function () {
         if (player && player.isMuted()) {
             player.unMute();
-            pulsador.style.display = "none"; // ya no hace falta
+            pulsador.style.display = "none";
         }
     });
-    pulsador.dispatchEvent(new Event("click", {bubbles: true}))
 }
