@@ -41,7 +41,6 @@ function resto() {
     // Insertamos contenedor del player
     paso2.innerHTML = `
         <div id="player"></div>
-        <div class="pulsador"></div>
     `;
 
     // Cargar API si no está cargada
@@ -97,5 +96,4 @@ function activarSonido() {
             pulsador.style.display = "none";
         }
     });
-    pulsador.click()
 }
